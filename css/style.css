@@ -19,6 +19,11 @@ img {
 
 .slide {
   display: flex;
+  cursor: grab;
+}
+
+.slide:active {
+  cursor: grabbing;
 }
 
 .slide li {
