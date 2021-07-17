@@ -173,6 +173,14 @@ export class SlideNav extends Slide {
   addArrowEvent() {
     this.prevElement.addEventListener('click', this.activePrevSlide)
     this.nextElement.addEventListener('click', this.activeNextSlide)
+    window.addEventListener('keydown', (event) => {
+      if (event.code === 'ArrowRight') {
+        this.activeNextSlide()
+      }
+      if (event.code === 'ArrowLeft') {
+        this.activePrevSlide()
+      }
+    })
   }
 
   /*Bolinhas de navegação*/
@@ -203,6 +211,7 @@ export class SlideNav extends Slide {
   addControl(customControl) {
     this.control = document.querySelector(customControl) || this.createControl()
     this.controlArray = [...this.control.children]
+    this.activeControlItem()
     this.controlArray.forEach(this.eventControl)
   }
 
